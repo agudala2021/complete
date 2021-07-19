@@ -13,9 +13,6 @@ public class BookInfoController {
     @Autowired
     BookInfoService BIService;
 
-    @Autowired
-    BookAddService BIAddService;
-
     @GetMapping("/Book_Details")
     public List<Book_Info> BookInfo(@RequestParam(value = "name", defaultValue = "FivePointSomeone") String name)
     {
@@ -23,6 +20,12 @@ public class BookInfoController {
         return BIList;
     }
 
+    @GetMapping("/BookCostDetails")
+    public List<Book_Info> BookInfo1(@RequestParam(value = "Cost", defaultValue = "300") String Cost)
+    {
+        List<Book_Info> BIList1 = BIService.getBookCostDetails(Cost);
+        return BIList1;
+    }
  }
 
 
